@@ -29,13 +29,18 @@ export class FilterBoxComponent implements AfterContentInit {
   }
 
   ngAfterContentInit(): void {
+    /* tslint:disable */
     this.boxListener = Observable.fromEvent(this.elementRef.nativeElement, 'keyup')
       .map((e: any) => e.target.value); // extract the value of the input
       // .filter((text: string) => text.length > 2) // filter out if less than 3 characters
     if (!!this.minTextSize) {
-      this.boxListener.filter((text: string) => text.length >= this.minTextSize);
+      this.boxListener.filter(
+        (text: string, index: number) => text.length >= this.minTextSize
+      );
     }
-    this.boxListener.debounceTime(this.debounceTime || 250) // only once every 250ms or number or required ms
+    this.boxListener.debounceTime(
+      this.debounceTime || 250
+    ) // only once every 250ms or number or required ms
       // search, discarding old events if new input comes in
       .subscribe(
         (query: string) => {
@@ -46,15 +51,7 @@ export class FilterBoxComponent implements AfterContentInit {
             this.searchRequest.emit(query);
           }
       });
-/*
-    if (!!this.requestForChange) {
-      this.requestForChange.subscribe(
-        (next: string) => {
-          this.elementRef.nativeElement.value = next;
-        }
-      );
-    }
-*/
+    /* tslint:enable */
   }
 
 }

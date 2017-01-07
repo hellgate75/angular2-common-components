@@ -15,6 +15,7 @@ export interface Reversible {
 export class ItemChange {
   key: string;
   value: any;
+  valid: boolean;
 }
 export interface ICloneableConstructor<T extends Cloneable> {
   new(object: any): T;

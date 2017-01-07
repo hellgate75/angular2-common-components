@@ -1,10 +1,13 @@
+@import "../../../variables";
+@import "../../../styles";
+
 .form-inline {
-  display: block;
-  width: 100%;
-  overflow: hidden;
+  display: $form-inline-display;
+  width: $form-inline-width;
+  overflow: $form-inline-overflow;
 }
 .form-inline > .form-group {
-  display: inline-flex;
+  display: $form-inline-group-display;
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;

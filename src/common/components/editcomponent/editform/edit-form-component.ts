@@ -17,6 +17,7 @@ export class EditFormComponent implements AfterContentInit {
   @Input() metaList: FormField[];
   @Input() linkedMap:  Map<string, Cloneable[]>;
   @Input() value: Cloneable;
+  validityMap: any = {};
 
   constructor(@Inject(ElementRef) private elementRef: ElementRef) {
   }
@@ -24,6 +25,7 @@ export class EditFormComponent implements AfterContentInit {
   fieldChanged(change: ItemChange): void {
     if (!!change && this.value.hasOwnProperty(change.key)) {
       this.value[change.key] = change.value;
+      this.validityMap[change.key] = change.valid;
     }
   }
 
@@ -31,7 +33,34 @@ export class EditFormComponent implements AfterContentInit {
     return this.value.hasOwnProperty(meta.id) ? this.value[meta.id] : null;
   }
 
+  evaluateRequiredValidity(field: FormField, value: any): boolean {
+    if (field.type === 'map') {
+      if (!!(<any[]>value).length) {
+        return false;
+      }
+      (<any[]>value).filter(
+        (value: any) => {
+          let valid: boolean = true;
+          let key: any;
+          for(key in value) {
+            if (value[key] === undefined || value[key] === '' || value[key] === null) {
+              valid = false;
+              break;
+            }
+          }
+          return valid;
+        }
+      );
+    }
+    return (''+value[field.id]).length > 0;
+  }
+
   ngAfterContentInit(): void {
+    this.metaList.forEach(
+      (field: FormField) => {
+        this.validityMap[field.id] = (field.required ? this.evaluateRequiredValidity(field, this.value[field.id])  : true);
+      }
+    );
   }
 
 }

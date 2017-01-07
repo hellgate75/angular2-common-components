@@ -39,12 +39,11 @@ export class EditElementComponent implements AfterContentInit, OnChanges {
   }
 
   valueChanged(value: any, valid: boolean): void {
-    if (valid) {
-      let change: ItemChange = new ItemChange();
-      change.key = this.field;
-      change.value = value;
-      this.changed.emit(change);
-    }
+    let change: ItemChange = new ItemChange();
+    change.key = this.field;
+    change.value = value;
+    change.valid = valid;
+    this.changed.emit(change);
   }
 
   getLinkedValues(): Cloneable[] {
@@ -143,6 +142,7 @@ export class EditElementComponent implements AfterContentInit, OnChanges {
       item[this.getOptionValueKey(item)] = value;
     }
     this._optionValues[index][this.getOptionValueKey(item)] = value;
+    this.valueChanged(this.value, (!this.required || !!value.length));
   }
 
   listSelect(event: any): void {

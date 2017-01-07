@@ -1,5 +1,7 @@
-import {Component, OnInit, Input, Output, Inject, EventEmitter, ElementRef, AfterContentInit,
-  OnChanges, SimpleChanges} from '@angular/core';
+import {
+  Component, OnInit, Input, Output, Inject, EventEmitter, ElementRef, AfterContentInit,
+  OnChanges, SimpleChanges, ViewEncapsulation
+} from '@angular/core';
 import { FakeAddressBookService } from '../../services/fake-address-book-service';
 import { Contact, Item } from '../../models/address-book-models';
 import { FilterBoxComponent } from '../../../src/common/components/filterbox/filter-box-component';
@@ -19,7 +21,8 @@ let contactsMetaData: Metadata = <Metadata>require('../../config/contacts.metada
   providers: [FakeAddressBookService, FilterBoxComponent,
               SortingBoxComponent, EditDialogComponent, ItemListComponent],
   templateUrl: './app.addressbook.component.html',
-  styleUrls: ['./app.addressbook.component.scss']
+  styleUrls: ['./app.addressbook.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AddressBookComponent implements AfterContentInit, OnChanges {
   // Component properties

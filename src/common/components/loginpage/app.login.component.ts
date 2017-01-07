@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, Inject} from '@angular/core';
+import {Component, ElementRef, OnInit, Inject, ViewEncapsulation} from '@angular/core';
 import {AuthService} from '../../services/auth-service';
 import { CanActivateLoginGuard } from '../../guards/guards';
 import { Router } from '@angular/router';
@@ -9,7 +9,8 @@ declare var jQuery: any;
   selector: 'app-login',
   providers: [AuthService, CanActivateLoginGuard],
   templateUrl: './app.login.component.html',
-  styleUrls: ['./app.login.component.scss']
+  styleUrls: ['./app.login.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class LoginComponent implements OnInit {
   message: string;
