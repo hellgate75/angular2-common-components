@@ -17,6 +17,6 @@ export const serviceServer = {
   ]
 };
 export const appConfig = {
-  services: serviceServer,
+  services: {"servers": {"LOGIN": serviceServer}},
   environment: environment
 };
