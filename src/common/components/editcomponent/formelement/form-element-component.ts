@@ -1,7 +1,7 @@
 import {Component, ElementRef, AfterContentInit, Inject, Input, Output, EventEmitter, OnChanges,
   SimpleChanges  } from '@angular/core';
 import { NgModel } from '@angular/forms';
-import { ItemChange, FormField } from '../../../models/models';
+import { ItemChange, FormField, Cloneable } from '../../../models/models';
 
 declare var jQuery: any;
 declare var JSON: any;
@@ -18,7 +18,7 @@ declare var JSON: any;
 export class EditElementComponent implements AfterContentInit, OnChanges {
   @Input() value: any;
   @Input() meta: FormField;
-  @Input() elements: any;
+  @Input() elements:  Map<string, Cloneable[]>;
   @Output() changed: EventEmitter<ItemChange>;
   required: boolean = false;
   field: string = '';
@@ -34,6 +34,10 @@ export class EditElementComponent implements AfterContentInit, OnChanges {
     this.changed = new EventEmitter<any>();
   }
 
+  isShown(): boolean {
+    return this.meta.type !== 'hidden';
+  }
+
   valueChanged(value: any, valid: boolean): void {
     if (valid) {
       let change: ItemChange = new ItemChange();
@@ -43,9 +47,9 @@ export class EditElementComponent implements AfterContentInit, OnChanges {
     }
   }
 
-  getLinkedValues(): any[] {
+  getLinkedValues(): Cloneable[] {
     if (!!this.elements) {
-      return <any[]>this.elements[this.meta.linkedService];
+      return this.elements.get(this.meta.linkedService);
     }
     return [];
   }

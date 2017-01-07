@@ -34,6 +34,16 @@ npm install
 npm run build
 ```
 
+For a full featured example :
+
+```
+# run
+npm run start
+```
+
+Then visit [http://localhost:4200](http://localhost:4200) in your browser.
+
+
 ## Detailed Installation
 
 **Step 1: Install Node.js from the [Node Website](http://nodejs.org/).**
@@ -56,6 +66,18 @@ npm install -g ng
 ```bash
 npm install
 ```
+
+
+##Running the examples
+
+Run :
+
+```
+# run
+npm run start
+```
+
+Then visit [http://localhost:4200](http://localhost:4200) in your browser.
 
 
 ## Running the Tests

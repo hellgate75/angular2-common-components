@@ -1,11 +1,11 @@
-@import "../../../variables";
+@import "../../../src/variables";
 
-.item-list {
+.address-book-table {
   display: block;
   width: 100%;
   overflow: hidden;
 }
-.item-list > .item-list-box {
+.address-book-table > .contact {
   background-color: #f9f9f9;
   border: 1px solid #716e6e;
   border-radius: 20px;
@@ -15,17 +15,17 @@
   margin-right: 10px;
   margin-left: 10px;
 }
-.item-list > .item-list-box.alternate {
+.address-book-table > .contact.alternate {
   background-color: #edf3c0;
 }
-.item-list > .item-list-box > .row {
+.address-book-table > .contact > .row {
   display: inline-flex;
   width: 100%;
   overflow: hidden;
   padding-left: 10px;
   padding-right: 10px;
 }
-.column4 {
+.address-book-table > .contact > .row > .column4 {
   position: relative;
   float: left;
   display: inline !important;
@@ -35,22 +35,7 @@
   white-space: nowrap;
 }
 
-.bubble {
-  position: relative;
-  float: left;
-  display: inline !important;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  border: 1px solid #a6aca6;
-  border-radius: 5px;
-  background-color: #EAE7FF;
-  margin-right: 5px;
-  padding: 5px;
-}
-
-
-.column3 {
+.address-book-table > .contact > .row > .column3 {
   position: relative;
   float: left;
   display: inline !important;
@@ -59,29 +44,11 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.column2 {
+.address-book-table > .contact > .row > .column2 {
   position: relative;
   float: left;
   display: inline !important;
   width: 50%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.column2on3 {
-  position: relative;
-  float: left;
-  display: inline !important;
-  width: 75%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.column1 {
-  position: relative;
-  float: left;
-  display: inline !important;
-  width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -159,18 +126,18 @@ label.selector > i {
 }
 
 @media (max-width: $screen-generic-list-xs) {
-  .item-list > .item-list-box > .row {
+  .address-book-table > .contact > .row {
     display: inline-block;
   }
-  .item-list > .item-list-box > .row > .column4 {
+  .address-book-table > .contact > .row > .column4 {
     width: 100%;
     text-align: left;
   }
-  .item-list > .item-list-box > .row > .column3 {
+  .address-book-table > .contact > .row > .column3 {
     width: 100%;
     text-align: left;
   }
-  .item-list > .item-list-box > .row > .column2 {
+  .address-book-table > .contact > .row > .column2 {
     width: 100%;
     text-align: left;
   }

@@ -15,7 +15,7 @@ declare var jQuery: any;
 /* tslint:enable */
 export class EditFormComponent implements AfterContentInit {
   @Input() metaList: FormField[];
-  @Input() linkedMap: any;
+  @Input() linkedMap:  Map<string, Cloneable[]>;
   @Input() value: Cloneable;
 
   constructor(@Inject(ElementRef) private elementRef: ElementRef) {

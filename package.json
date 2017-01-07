@@ -64,8 +64,8 @@
     "requirejs": "^2.3.2",
     "semantic": "0.0.1",
     "ts-node": "1.2.1",
-    "tslint": "^4.3.1",
-    "typescript": "~2.0.3",
+    "tslint": "3.13.0",
+    "typescript": "^2.0.10",
     "webdriver-manager": "10.2.5"
   }
 }

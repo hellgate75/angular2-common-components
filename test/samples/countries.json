@@ -1,0 +1,24 @@
+{
+  "countries": [
+    {
+      "id": "1",
+      "type": "IE",
+      "value": "Republic of Ireland"
+    },
+    {
+      "id": "2",
+      "type": "IT",
+      "value": "Italy"
+    },
+    {
+      "id": "2",
+      "type": "DE",
+      "value": "Germany"
+    },
+    {
+      "id": "4",
+      "type": "SL",
+      "value": "Slovenia"
+    }
+  ]
+}

@@ -16,7 +16,7 @@ declare var JSON: any;
 /* tslint:enable */
 export class EditDialogComponent implements AfterContentInit {
   @Input() metadata: Metadata;
-  @Input() linkeddata: any;
+  @Input() linkeddata:  Map<string, Cloneable[]>;
   @Input() activation: EventEmitter<Cloneable>;
   @Input() height: number;
   @Input() width: number;

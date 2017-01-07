@@ -1,0 +1,25 @@
+{
+  "contacts": [
+    {
+      "id": "1",
+      "type": "email",
+      "value": "E-Mail"
+    },
+    {
+      "id": "2",
+      "type": "mobile",
+      "value": "Mobile Phone"
+    },
+    {
+      "id": "3",
+      "type": "homephone",
+      "value": "Home Phone"
+    },
+    {
+      "id": "4",
+      "type": "officephone",
+      "value": "Office Phone"
+    }
+  ]
+
+}

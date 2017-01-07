@@ -10,11 +10,18 @@ import {APP_BASE_HREF, HashLocationStrategy, LocationStrategy} from '@angular/co
 import { LIB_MODULE_DECLARATIONS, PageNotFoundComponent, UnAuthotorizedComponent,
   WelcomeComponent, LoginComponent, CanActivateLoginGuard, Utils, BackEndService, AuthService, UserStatusComponent,
   FilterBoxComponent, SortingBoxComponent, SortingBoxItemComponent, EditDialogComponent, EditFormComponent,
-  EditElementComponent, PagingBoxComponent, USER_BIND_SESSION_KEY, OBJECT_SERVICE_SERVER_CONF,
+  EditElementComponent, PagingBoxComponent, ItemListComponent, USER_BIND_SESSION_KEY, OBJECT_SERVICE_SERVER_CONF,
   OBJECT_APPLICATION_CONF} from '../src/index';
 /* tslint:enable */
 // Components
 import { AppComponent } from './components/app.component';
+import { AddressBookComponent } from './components/addressbook/app.addressbook.component';
+
+// Components
+
+import { FakeAddressBookService } from './services/fake-address-book-service';
+
+// Config
 
 import { serviceServer, appConfig } from '../src/environments/environment';
 
@@ -45,6 +52,7 @@ let appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    AddressBookComponent,
     WelcomeComponent,
     UnAuthotorizedComponent,
     LoginComponent,
@@ -56,7 +64,8 @@ let appRoutes: Routes = [
     EditDialogComponent,
     EditFormComponent,
     EditElementComponent,
-    PagingBoxComponent
+    PagingBoxComponent,
+    ItemListComponent
 /*
       ...[AppComponent,
       ...LIB_MODULE_DECLARATIONS]
@@ -74,6 +83,7 @@ let appRoutes: Routes = [
   ],
   providers: [
     CanActivateLoginGuard,
+    {provide: FakeAddressBookService, useClass: FakeAddressBookService},
     {provide: APP_BASE_HREF, useValue: '/'},
     {provide: LocationStrategy, useClass: HashLocationStrategy},
     {provide: Utils, useClass: Utils},

@@ -1,4 +1,4 @@
-<div id="fld_{{field}}" class="ui form" [ngSwitch]="type">
+<div id="fld_{{field}}" class="ui form" [ngSwitch]="type" *ngIf="isShown()">
   <div *ngSwitchCase="'string'" class="field">
     <label [for]="field">{{name}}</label>
     <input type="text" [id]="field" (change)="textKeyDown($event)" [(ngModel)]="value">

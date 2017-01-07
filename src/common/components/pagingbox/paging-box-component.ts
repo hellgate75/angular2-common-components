@@ -61,6 +61,11 @@ export class PagingBoxComponent implements AfterContentInit {
 
   ngAfterContentInit(): void {
     this.pager = Pager.empty(this.pageSize);
+    this.pageSizeChangeEvent.subscribe(
+      (next: number) => {
+        this.pager.page = next || 1;
+      }
+    );
   }
 
 }

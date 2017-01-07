@@ -9,3 +9,4 @@ export * from './userstatus/user.status.component';
 export * from './welcomepage/app.welcome.component';
 export * from './unauthorizedpage/unauthorized.component';
 export * from './pagingbox/paging-box-component';
+export * from './itemslist/itemslist.component';
