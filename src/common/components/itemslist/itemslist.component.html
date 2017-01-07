@@ -1,0 +1,43 @@
+<div class="address-book-table">
+  <div *ngFor="let element of elements; let i=index;" class="contact" [ngClass]="{'alternate': (i%2===1)}">
+    <div class="row" *ngFor="let field of metadata.meta.field" *ngIf="isShown(field)">
+    <div [ngSwitch]="field.type">
+      <div *ngSwitchCase="'list'">
+        <div class="row">
+          <div  class="column1" [ngStyle]="{'text-align': 'right', 'padding-right' : '5px'}"  title="{{field.name}}">{{field.name}}</div>
+        </div>
+        <div class="row">
+          <div *ngFor="let subElement of getFieldValue(element, field)" class="column1"
+               title="{{getListItemDesc(subElement, field)}}: {{getlistItemValue(subElement, field)}}">
+            {{getListItemDesc(subElement, field)}}: {{getlistItemValue(subElement, field)}}</b></div>
+        </div>
+      </div>
+      <div *ngSwitchCase="'map'">
+        <div class="row">
+          <div  class="column1" [ngStyle]="{'text-align': 'right', 'padding-right' : '5px'}"  title="{{field.name}}">{{field.name}}</div>
+        </div>
+        <div class="row">
+        <div *ngFor="let subElement of getFieldValue(element, field)" class="column1"
+             title="{{getListItemDesc(subElement, field)}}: {{getlistItemValue(subElement, field)}}">
+          {{getListItemDesc(subElement, field)}}: {{getlistItemValue(subElement, field)}}</b></div>
+        </div>
+      </div>
+      </div>
+      <div *ngSwitchDefault>
+        <div  class="column4" [ngStyle]="{'text-align': 'right', 'padding-right' : '5px'}"  title="{{field.name}}">{{field.name}}</div>
+        <div  class="column2on3" [ngStyle]="{'text-align': 'left', 'padding-left' : '5px'}" title="{{getFieldValue(element, field)}}">{{getFieldValue(element, field)}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="container-flex">
+    <div class="ui-buttonset">
+      <a class="action-link red" (click)="deleteItem(contact.id)">
+        <i class="fa fa-close" aria-hidden="true"></i> Delete
+      </a>
+      <a class="action-link green" (click)="updateItem(contact.id)">
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
+      </a>
+    </div>
+  </div>
+  </div>
+</div>

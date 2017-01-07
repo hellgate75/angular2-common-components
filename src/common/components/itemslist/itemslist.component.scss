@@ -1,0 +1,162 @@
+@import "../../../variables";
+
+.address-book-table {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+}
+.address-book-table > .contact {
+  background-color: #f9f9f9;
+  border: 1px solid #716e6e;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 10px 10px 5px #716e6e;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.address-book-table > .contact.alternate {
+  background-color: #edf3c0;
+}
+.address-book-table > .contact > .row {
+  display: inline-flex;
+  width: 100%;
+  overflow: hidden;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.address-book-table > .contact > .row > .column4 {
+  position: relative;
+  float: left;
+  display: inline !important;
+  width: 25%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.address-book-table > .contact > .row > .column3 {
+  position: relative;
+  float: left;
+  display: inline !important;
+  width: 33%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.address-book-table > .contact > .row > .column2 {
+  position: relative;
+  float: left;
+  display: inline !important;
+  width: 50%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.address-book-table > .contact > .row > .column2on3 {
+  position: relative;
+  float: left;
+  display: inline !important;
+  width: 75%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.address-book-table > .contact > .row > .column1 {
+  position: relative;
+  float: left;
+  display: inline !important;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.center, .column3.center, .column2.center {
+  text-align: center;
+  vertical-align: middle;
+}
+div.form-group > span {
+  position: relative;
+  float: right;
+  color: #072080;
+  margin-right: 10px;
+  font-size: 17px;
+  font-size: 1.3em;
+}
+div.form-group > span.error,
+div.form-group > span.fa.fa-flash {
+  color: #8b211e;
+}
+.ui-buttonset {
+  width: 100%;
+  display: inline;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.action-link {
+  position: relative;
+  float: right;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin-right: 5px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.action-link > i {
+  font-size: 12px;
+  color: #8c8c8c;
+  margin-left: 5px;
+}
+.action-link > i:before {
+  top: -1px;
+  position: relative;
+}
+.action-link.green,
+.action-link.green > i{
+  color: #08804f;
+}
+.action-link.red,
+.action-link.red > i{
+  color: #97010f;
+}
+label.selector > i {
+  font-size: 15px;
+  color: #08804f ! important;
+  margin-left: 5px;
+}
+label.selector > i.fa.fa-plus-circle {
+  color: #08804f ! important;
+  margin-top:    10px;
+  margin-bottom: 10px;
+}
+label.selector {
+  top: -5px;
+  color: #08804f ! important;
+  text-transform: uppercase;
+}
+label.selector > i:before {
+  top: -1px;
+  position: relative;
+}
+label.selector > i {
+  cursor: pointer;
+}
+
+@media (max-width: $screen-generic-list-xs) {
+  .address-book-table > .contact > .row {
+    display: inline-block;
+  }
+  .address-book-table > .contact > .row > .column4 {
+    width: 100%;
+    text-align: left;
+  }
+  .address-book-table > .contact > .row > .column3 {
+    width: 100%;
+    text-align: left;
+  }
+  .address-book-table > .contact > .row > .column2 {
+    width: 100%;
+    text-align: left;
+  }
+}
