@@ -1,12 +1,17 @@
 @import "../../../src/variables";
 
+div.form-group {
+  display: inline-block;
+}
+
+
 div.form-group > span {
-  position: relative;
+  position: fixed;
   float: right;
   color: #072080;
-  margin-right: 10px;
   font-size: 17px;
   font-size: 1.3em;
+  right: 20px;
 }
 div.form-group > span.error,
 div.form-group > span.fa.fa-flash {
