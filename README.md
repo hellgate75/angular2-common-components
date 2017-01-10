@@ -2,9 +2,9 @@
   <img src="/src/assets/logos/angular.png" alt="Angular2 Simple Router Navigation App" width="100" height="100"/>
 </p>
 
-# Angular2 Common Library
+# Angular2 Common Components Library
 
-> An Angular 2 chat app using [Angular 2](https://angular.io/), [RxJS](https://github.com/Reactive-Extensions/RxJS), [Angular-cli](https://cli.angular.io/), [Webpack](https://webpack.github.io/), [TypeScript](http://www.typescriptlang.org/), Services, Injectables, [Karma](http://karma-runner.github.io/), Forms, [SCSS](http://sass-lang.com/), and [tslint](http://palantir.github.io/tslint/) by [Fabrizio Torelli](https://github.com/hellgate75)
+> An Angular2 Common Components Library using [Angular 2](https://angular.io/), [RxJS](https://github.com/Reactive-Extensions/RxJS), [Angular-cli](https://cli.angular.io/), [Webpack](https://webpack.github.io/), [TypeScript](http://www.typescriptlang.org/), Services, Injectables, [Karma](http://karma-runner.github.io/), Forms, [SCSS](http://sass-lang.com/), and [tslint](http://palantir.github.io/tslint/) by [Fabrizio Torelli](https://github.com/hellgate75)
 
 This repo shows an example application using RxJS and Angular 2. The goal is to show how to use the Observables data architecture pattern and Router subroute combinations within Angular 2. It also features:
 
