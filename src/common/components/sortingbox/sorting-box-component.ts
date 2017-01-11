@@ -1,4 +1,7 @@
-import {Component, ElementRef, AfterContentInit,  Inject, EventEmitter, Output, Input } from '@angular/core';
+import {
+  Component, ElementRef, AfterContentInit, Inject, EventEmitter, Output, Input,
+  ViewEncapsulation
+} from '@angular/core';
 
 import { SortingItem, SORTING_STATE } from '../../models/back-end-model';
 
@@ -11,7 +14,6 @@ declare var jQuery: any;
   selector: 'sorting-box-item',
   providers: [ ],
   templateUrl: './sorting-box-item-component.html',
-  styleUrls: ['./sorting-box-component.scss'],
   host: {'style' : 'width: 100%'}
 })
 /* tslint:enable */
@@ -60,8 +62,8 @@ export class SortingBoxItemComponent {
   selector: 'sorting-box',
   providers: [ SortingBoxItemComponent ],
   templateUrl: './sorting-box-component.html',
-  styleUrls: ['./sorting-box-component.scss'],
-  host: {'style' : 'width: 100%'}
+  host: {'style' : 'width: 100%'},
+  encapsulation: ViewEncapsulation.None
 })
 /* tslint:enable */
 export class SortingBoxComponent implements AfterContentInit {

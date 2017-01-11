@@ -30,6 +30,9 @@ cd angular2-common-components
 # install
 npm install
 
+# install asset remote repo
+npm run-script build-asset
+
 # run
 npm run build
 ```

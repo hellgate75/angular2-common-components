@@ -1,3 +1,10 @@
+import '../node_modules/angular2-common-components-assets/src/unbounded/js/jquery.js';
+import '../node_modules/angular2-common-components-assets/src/unbounded/js/jquery-ui.js';
+/*
+import '../node_modules/angular2-common-components-assets/src/unbounded/js/semantic.js';
+*/
+import '../node_modules/angular2-common-components-assets/node_modules/bootstrap-sass/assets/javascripts/bootstrap.js';
+
 import './assets.ts';
 import './typings.ts';
 import '../polyfills.ts';

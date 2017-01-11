@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-page-not-found-page',
   templateUrl: './pagenotfound.component.html',
-  styleUrls: ['./pagenotfound.component.scss']
+  encapsulation: ViewEncapsulation.None
 })
 export class PageNotFoundComponent {
   title: string = 'Page Not Found!';

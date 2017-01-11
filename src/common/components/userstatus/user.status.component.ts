@@ -1,4 +1,4 @@
-import {Component, ElementRef, Inject} from '@angular/core';
+import {Component, ElementRef, Inject, ViewEncapsulation} from '@angular/core';
 import {Router} from '@angular/router';
 
 import {AuthService} from '../../services/auth-service';
@@ -7,7 +7,7 @@ import {AuthService} from '../../services/auth-service';
   selector: 'app-user-status',
   providers: [AuthService],
   templateUrl: './user.status.component.html',
-  styleUrls: ['./user.status.component.scss']
+  encapsulation: ViewEncapsulation.None
 })
 export class UserStatusComponent {
   elementRef: ElementRef;

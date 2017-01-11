@@ -1,4 +1,7 @@
-import {Component, ElementRef, AfterContentInit, Inject, EventEmitter, Output, Input } from '@angular/core';
+import {
+  Component, ElementRef, AfterContentInit, Inject, EventEmitter, Output, Input,
+  ViewEncapsulation
+} from '@angular/core';
 import { Pager } from '../../models/back-end-model';
 
 declare var jQuery: any;
@@ -8,8 +11,8 @@ declare var jQuery: any;
   selector: 'paging-box',
   providers: [  ],
   templateUrl: './paging-box-component.html',
-  styleUrls: ['./paging-box-component.scss'],
-  host: {'style' : 'width: 100%'}
+  host: {'style' : 'width: 100%'},
+  encapsulation: ViewEncapsulation.None
 })
 /* tslint:enable */
 export class PagingBoxComponent implements AfterContentInit {

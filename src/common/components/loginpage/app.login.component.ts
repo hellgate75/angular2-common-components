@@ -9,7 +9,6 @@ declare var jQuery: any;
   selector: 'app-login',
   providers: [AuthService, CanActivateLoginGuard],
   templateUrl: './app.login.component.html',
-  styleUrls: ['./app.login.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class LoginComponent implements OnInit {

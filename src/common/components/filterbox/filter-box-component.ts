@@ -9,7 +9,6 @@ declare var jQuery: any;
   selector: 'filter-box',
   providers: [ NgModel ],
   templateUrl: './filter-box-component.html',
-  styleUrls: ['./filter-box-component.scss'],
   host: {'style' : 'width: 100%'}
 })
 /* tslint:enable */

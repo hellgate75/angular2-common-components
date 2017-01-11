@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import {Component, ViewEncapsulation} from '@angular/core';
 import {AuthService} from '../../services/auth-service';
 
 @Component({
   selector: 'app-welcome-page',
   providers: [ AuthService ],
   templateUrl: './app.welcome.component.html',
-  styleUrls: ['./app.welcome.component.scss']
+  encapsulation: ViewEncapsulation.None
 })
 export class WelcomeComponent {
   title: string = 'Welcome ';

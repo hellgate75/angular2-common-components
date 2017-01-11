@@ -1,17 +1,27 @@
 @import "../../../src/variables";
 
 div.form-group {
-  display: inline-block;
+  display: inline-flex;
 }
 
+.form-inline > .form-group > label {
+  margin-left: 15px;
+  margin-right: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: right;
+  vertical-align: middle;
+  padding-top: 5px;
+}
 
 div.form-group > span {
-  position: fixed;
-  float: right;
+  position: relative;
+  float: left;
   color: #072080;
   font-size: 17px;
   font-size: 1.3em;
-  right: 20px;
+  left: 20px;
 }
 div.form-group > span.error,
 div.form-group > span.fa.fa-flash {

@@ -1,4 +1,7 @@
-import { Component, AfterContentInit, OnChanges, SimpleChanges, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component, AfterContentInit, OnChanges, SimpleChanges, Input, Output, EventEmitter,
+  ViewEncapsulation
+} from '@angular/core';
 import { NgSwitch } from '@angular/common';
 import { Cloneable, Metadata, FormField } from '../../models/base-model';
 
@@ -9,7 +12,7 @@ declare var jQuery: any;
   selector: 'item-list-table',
   providers: [ NgSwitch ],
   templateUrl: './itemslist.component.html',
-  styleUrls: ['./itemslist.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ItemListComponent implements AfterContentInit, OnChanges {
   @Input() elements: Cloneable[];
