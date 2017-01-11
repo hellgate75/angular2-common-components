@@ -9,7 +9,7 @@ import {APP_BASE_HREF, HashLocationStrategy, LocationStrategy} from '@angular/co
 // Components
 import { WelcomeComponent, UnAuthotorizedComponent, LoginComponent, UserStatusComponent, PageNotFoundComponent,
   FilterBoxComponent, SortingBoxComponent, SortingBoxItemComponent, EditDialogComponent, EditFormComponent,
-  EditElementComponent, PagingBoxComponent, ItemListComponent } from './components/components';
+  EditElementComponent, PagingBoxComponent, ItemListComponent, NavigationBarComponent } from './components/components';
 
 // Services
 import { AuthService , BackEndService } from './services/services';
@@ -32,7 +32,8 @@ export const LIB_MODULE_DECLARATIONS = [
   EditFormComponent,
   EditElementComponent,
   PagingBoxComponent,
-  ItemListComponent
+  ItemListComponent,
+  NavigationBarComponent
 ];
 
 @NgModule({
@@ -48,7 +49,9 @@ export const LIB_MODULE_DECLARATIONS = [
     EditDialogComponent,
     EditFormComponent,
     EditElementComponent,
-    PagingBoxComponent
+    PagingBoxComponent,
+    ItemListComponent,
+    NavigationBarComponent
   ],
   imports: [
     BrowserModule,

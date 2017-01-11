@@ -1,4 +1,7 @@
-import {Component, ElementRef, AfterContentInit, Inject, EventEmitter, Output, Input } from '@angular/core';
+import {
+  Component, ElementRef, AfterContentInit, Inject, EventEmitter, Output, Input,
+  ViewEncapsulation
+} from '@angular/core';
 import { Observable } from 'rxjs';
 import { NgModel } from '@angular/forms';
 
@@ -9,7 +12,8 @@ declare var jQuery: any;
   selector: 'filter-box',
   providers: [ NgModel ],
   templateUrl: './filter-box-component.html',
-  host: {'style' : 'width: 100%'}
+  host: {'style' : 'width: 100%'},
+  encapsulation: ViewEncapsulation.None
 })
 /* tslint:enable */
 export class FilterBoxComponent implements AfterContentInit {

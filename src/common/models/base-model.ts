@@ -1,4 +1,5 @@
 import { uuid } from '../utils/uuid';
+import {Subject} from 'rxjs/Rx';
 
 export class Cloneable {
   id: string;
@@ -58,4 +59,61 @@ export class FormMeta {
 export class Metadata {
   sorting: SortMeta[];
   meta: FormMeta;
+}
+let routeConvertion: Function = function(object: any): RouteDescriptor[] {
+  if (!!object) {
+    if ( typeof object.forEach === 'function' ) {
+      let newRoutes: RouteDescriptor[] = [] ;
+      object.forEach( (item: any) => {
+        newRoutes.push(new RouteDescriptor(item));
+      });
+      return newRoutes;
+    } else {
+      return [new RouteDescriptor(object)];
+    }
+  }
+  return null;
+};
+
+export class RouteChangeNotification {
+  routeId: string;
+  routeEnabled: boolean;
+}
+
+export class RouteDescriptor {
+  id: string;
+  name: string;
+  url: string;
+  description: string;
+  subRoutes: RouteDescriptor[];
+  routeChangeSubject: Subject<RouteChangeNotification>;
+  disabled: boolean = false;
+  hidden: boolean = false;
+
+  constructor(object: any) {
+    this.id = object.id                                 || uuid();
+    this.name = object.name                             || '';
+    this.url = object.url                               || '';
+    this.description = object.description               || '';
+    this.subRoutes = routeConvertion(object.subRoutes)  || [];
+    this.routeChangeSubject = object.routeChangeSubject || null;
+  }
+
+  applyNotification(): Subject<RouteChangeNotification> {
+    if (!this.routeChangeSubject) {
+      this.routeChangeSubject = new Subject<RouteChangeNotification>();
+    }
+    return this.routeChangeSubject;
+  }
+
+  removeNotification(): void {
+    if (this.routeChangeSubject) {
+      this.routeChangeSubject = null;
+    }
+  }
+
+  clone(): RouteDescriptor {
+    return new RouteDescriptor(this);
+  }
+
 }

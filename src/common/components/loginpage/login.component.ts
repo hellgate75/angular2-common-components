@@ -5,12 +5,14 @@ import { Router } from '@angular/router';
 
 declare var jQuery: any;
 
+/* tslint:disable */
 @Component({
   selector: 'app-login',
   providers: [AuthService, CanActivateLoginGuard],
-  templateUrl: './app.login.component.html',
+  templateUrl: './login.component.html',
   encapsulation: ViewEncapsulation.None
 })
+/* tslint:enable */
 export class LoginComponent implements OnInit {
   message: string;
   message2: string;

@@ -1,4 +1,4 @@
-<div class="container-flex">
+<div class="container-flex" [ngClass]="ng-edit-form">
   <div class="ui-form" [ngStyle]="{'padding': '10px'}">
     <edit-element *ngFor="let meta of metaList" [elements]="linkedMap" [meta]="meta"
                   [value]="getReferenceValue(meta)" (changed)="fieldChanged($event)" ></edit-element>

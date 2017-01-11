@@ -1,0 +1,51 @@
+<div class="ng-login-form">
+  <div class="container-fluid">
+    <h2 title="{{title}}">
+      {{title}}
+
+    </h2>
+  </div>
+  <br/>
+  <div class="container-fluid"  *ngIf="!authService.isLogged()">
+    <h3 title="{{description}}">
+      {{description}}
+
+    </h3>
+  </div>
+  <br/>
+  <div class="container-fluent">
+    <div class="alert alert-danger" role="alert" *ngIf="message">
+      {{ message }}
+    </div>
+    <div class="alert alert-info" role="alert" *ngIf="loggedIn()">
+      {{ message2 }} Welcome back {{username()}}!! Leaving the page in: {{timeToGo}} seconds.
+    </div>
+
+    <form class="ng-login-form-table" *ngIf="!authService.isLogged()">
+      <div class="ng-login-form-table-group">
+        <label for="username">User:</label>
+        <input class="form-control" id="username" name="username" #username>
+      </div>
+
+      <div class="ng-login-form-table-group">
+        <label for="password">Password:</label>
+        <input class="form-control" type="password" id="password" name="password" #password>
+      </div>
+
+      <div class="ng-login-form-table-group center">
+      <button class="btn btn-default" (click)="login(username.value, password.value)" [ngClass]="{'hidden': loading}">
+        Submit
+      </button>
+      <button class="btn btn-primary disabled" style="display: inline-flex" [ngClass]="{'hidden': !loading}">
+        <i class="fa fa-refresh fa-spin fa-3x fa-fw" aria-hidden="true"></i>
+        Login in progress ...
+      </button>
+      </div>
+    </form>
+
+    <div class="well" *ngIf="authService.isLogged()" style="border-radius: 15px; border-radius: 1.2em;">
+      Logged in as <b>{{ authService.getUserName() }}</b><br/><br/>
+      <a href (click)="logout()" class="ui primary button" style="font-size: 14px;font-size: 1.0em;">Log out</a>
+    </div>
+  </div>
+</div>

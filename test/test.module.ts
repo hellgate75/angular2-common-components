@@ -10,8 +10,8 @@ import {APP_BASE_HREF, HashLocationStrategy, LocationStrategy} from '@angular/co
 import { LIB_MODULE_DECLARATIONS, PageNotFoundComponent, UnAuthotorizedComponent,
   WelcomeComponent, LoginComponent, CanActivateLoginGuard, Utils, BackEndService, AuthService, UserStatusComponent,
   FilterBoxComponent, SortingBoxComponent, SortingBoxItemComponent, EditDialogComponent, EditFormComponent,
-  EditElementComponent, PagingBoxComponent, ItemListComponent, USER_BIND_SESSION_KEY, OBJECT_SERVICE_SERVER_CONF,
-  OBJECT_APPLICATION_CONF} from '../src/index';
+  EditElementComponent, PagingBoxComponent, ItemListComponent, NavigationBarComponent
+  USER_BIND_SESSION_KEY, OBJECT_SERVICE_SERVER_CONF, OBJECT_APPLICATION_CONF} from '../src/index';
 /* tslint:enable */
 // Components
 import { AppComponent } from './components/app.component';
@@ -65,7 +65,8 @@ let appRoutes: Routes = [
     EditFormComponent,
     EditElementComponent,
     PagingBoxComponent,
-    ItemListComponent
+    ItemListComponent,
+    NavigationBarComponent
 /*
       ...[AppComponent,
       ...LIB_MODULE_DECLARATIONS]

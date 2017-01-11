@@ -1,4 +1,7 @@
-import {Component, ElementRef, AfterContentInit, Inject, EventEmitter, Output, Input } from '@angular/core';
+import {
+  Component, ElementRef, AfterContentInit, Inject, EventEmitter, Output, Input,
+  ViewEncapsulation
+} from '@angular/core';
 import {Cloneable, Metadata} from '../../models/models';
 import { EditFormComponent } from './editform/edit-form-component';
 
@@ -10,8 +13,8 @@ declare var JSON: any;
   selector: 'edit-dialog',
   providers: [ EditFormComponent ],
   templateUrl: './edit-dialog-component.html',
-  styleUrls: ['./edit-dialog-component.scss'],
-  host: {'style' : 'width: 100%'}
+  host: {'style' : 'width: 100%'},
+  encapsulation: ViewEncapsulation.None
 })
 /* tslint:enable */
 export class EditDialogComponent implements AfterContentInit {
@@ -20,12 +23,26 @@ export class EditDialogComponent implements AfterContentInit {
   @Input() activation: EventEmitter<Cloneable>;
   @Input() height: number;
   @Input() width: number;
+  @Input() effectDuration: number;
+  @Input() effectType: string;
+  @Input() effectDiretion: string;
   @Output() changed: EventEmitter<Cloneable>;
   reference: Cloneable;
   model: Cloneable;
+  contentjQueryElement: any
 
   constructor(@Inject(ElementRef) private elementRef: ElementRef) {
     this.changed = new EventEmitter<Cloneable>();
+    if (this.effectDuration === undefined) {
+      this.effectDuration = 250;
+    }
+    if (!this.effectDiretion) {
+      this.effectDiretion = 'up';
+    }
+    if (!this.effectType || this.effectType === '' ) {
+      this.effectType = 'slide';
+      this.effectDiretion = 'up';
+    }
   }
 
   save(): void {
@@ -48,6 +65,9 @@ export class EditDialogComponent implements AfterContentInit {
   }
 
   ngAfterContentInit(): void {
+    let contentElement: any = this.contentjQueryElement = jQuery(this.elementRef.nativeElement).find('#dialog-content');
+    contentElement.width(this.width);
+    contentElement.height(this.height);
     jQuery(this.elementRef.nativeElement).dialog({
       modal: true,
       autoOpen: false,
@@ -62,8 +82,8 @@ export class EditDialogComponent implements AfterContentInit {
             btn.addClass('btn').addClass((item.innerHTML === 'Confirm') ? 'btn-primary' : 'btn-secondary');
           }
         });
-        jQuery(this).add(jQuery('#dialog-content'));
-        jQuery('#dialog-content').show();
+        jQuery(this).add(contentElement);
+        jQuery(contentElement).show();
       },
       buttons: [
         {
@@ -79,8 +99,8 @@ export class EditDialogComponent implements AfterContentInit {
           }.bind(this)
         }
       ],
-      show: {effect: 'slide', direction: 'up'},
-      hide: {effect: 'slide', direction: 'up'},
+      show: {effect: this.effectType, direction: this.effectDiretion, duration: this.effectDuration},
+      hide: {effect: this.effectType, direction: this.effectDiretion, duration: this.effectDuration},
       closeOnEscape: false,
       draggable: false,
       resizable: false

@@ -1,5 +1,7 @@
-import {Component, ElementRef, AfterContentInit, Inject, Input, Output, EventEmitter, OnChanges,
-  SimpleChanges  } from '@angular/core';
+import {
+  Component, ElementRef, AfterContentInit, Inject, Input, Output, EventEmitter, OnChanges,
+  SimpleChanges, ViewEncapsulation
+} from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { ItemChange, FormField, Cloneable } from '../../../models/models';
 
@@ -11,8 +13,8 @@ declare var JSON: any;
   selector: 'edit-element',
   providers: [ NgModel ],
   templateUrl: './form-element-component.html',
-  styleUrls: ['./form-element-component.scss'],
-  host: {'style' : 'width: 100%'}
+  host: {'style' : 'width: 100%'},
+  encapsulation: ViewEncapsulation.None
 })
 /* tslint:enable */
 export class EditElementComponent implements AfterContentInit, OnChanges {

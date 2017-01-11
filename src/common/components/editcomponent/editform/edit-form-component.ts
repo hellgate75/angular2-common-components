@@ -1,4 +1,4 @@
-import {Component, ElementRef, AfterContentInit, Inject, Input } from '@angular/core';
+import {Component, ElementRef, AfterContentInit, Inject, Input, ViewEncapsulation} from '@angular/core';
 import { EditElementComponent } from '../formelement/form-element-component';
 import { Cloneable, ItemChange, FormField } from '../../../models/models';
 
@@ -9,8 +9,7 @@ declare var jQuery: any;
   selector: 'edit-form',
   providers: [ EditElementComponent ],
   templateUrl: './edit-form-component.html',
-  styleUrls: ['./edit-form-component.scss'],
-  host: {'style' : 'width: 100%'}
+  encapsulation: ViewEncapsulation.None
 })
 /* tslint:enable */
 export class EditFormComponent implements AfterContentInit {

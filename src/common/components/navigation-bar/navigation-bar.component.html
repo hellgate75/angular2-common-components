@@ -1,0 +1,11 @@
+<div class="ng-navigation-bar">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="ui fluid horizontal steps">
+      <a *ngFor="let route of routes" title="{{route.description}}"
+         [ngClass]="{'active': getLinkStyle(route), 'hidden' : route.hidden}"
+          [routerLink]="route.url" class="step">{{route.name}}</a>
+    </div>
+  </div>
+</nav>
+</div>

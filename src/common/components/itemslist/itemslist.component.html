@@ -1,27 +1,25 @@
-<div class="item-list">
-  <div *ngFor="let element of elements; let i=index;" class="item-list-box" [ngClass]="{'alternate': (i%2===1)}">
-    <div *ngFor="let field of getMetaFields()">
+<div class="ng-item-list">
+  <div *ngFor="let element of elements; let i=index;" class="ng-item-list-box" [ngClass]="{'alternate': (i%2===1)}">
+    <div class="ng-item-list-box-group" *ngFor="let field of getMetaFields()">
       <div class="row" *ngIf="isShown(field)">
-        <div [ngSwitch]="field.type">
-          <div *ngSwitchCase="'list'">
+        <div class="row-group" [ngSwitch]="field.type">
+          <div *ngSwitchCase="'list'" type="list" class="item-block">
             <div  class="column4" [ngStyle]="{'text-align': 'right', 'padding-right' : '5px'}"  title="{{field.name}}">{{field.name}}</div>
             <div class="column2on3"
                  title="{{getListItemValue(getFieldValue(element, field), field)}}">
               <b>{{getListItemValue(getFieldValue(element, field), field)}}</b>
             </div>
           </div>
-          <div *ngSwitchCase="'map'">
-            <div>
-              <div  class="column4" [ngStyle]="{'text-align': 'right', 'padding-right' : '5px'}"  title="{{field.name}}">{{field.name}}</div>
-            </div>
-            <div>
+          <div *ngSwitchCase="'map'" type="map" class="item-block">
+            <div  class="column4" [ngStyle]="{'text-align': 'right', 'padding-right' : '5px'}"  title="{{field.name}}">{{field.name}}</div>
+            <div style="display: inline;position: relative;float: left;" class="column2on3">
               <div *ngFor="let subElement of getFieldValue(element, field)" class="bubble"
                    title="{{getMapItemDesc(subElement, field)}}: {{getMapItemValue(subElement, field)}}">
                 <b>{{getMapItemDesc(subElement, field)}}: {{getMapItemValue(subElement, field)}}</b>
               </div>
             </div>
           </div>
-          <div *ngSwitchDefault >
+          <div *ngSwitchDefault type="label" class="item-block">
             <div  class="column4" [ngStyle]="{'text-align': 'right', 'padding-right' : '5px'}"  title="{{field.name}}">{{field.name}}</div>
             <div  class="column2on3" [ngStyle]="{'text-align': 'left', 'padding-left' : '5px'}" title="{{getFieldValue(element, field)}}"><b>{{getFieldValue(element, field)}}</b></div>
           </div>

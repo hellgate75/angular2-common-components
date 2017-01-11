@@ -1,4 +1,4 @@
-<p style="width: 100%; display: inline;">
+<p style="width: 100%; border: 0px; margin: 5px;">
 <img src="../../assets/logos/angular.png" style="width: 60px; height: 60px; position: relative; float: left;">
 </p>
 
@@ -6,9 +6,12 @@
   <div class="container-fluid">
     <h1 title="{{title}}">
       {{title}}
-
     </h1>
 </div>
+<br/>
+<h2>Navigation Bar</h2>
+<br/>
+<navigation-bar [routes]="routes"></navigation-bar>
 <br/>
 <app-page-not-found-page></app-page-not-found-page>
 <br/>
