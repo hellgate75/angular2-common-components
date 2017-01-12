@@ -11,8 +11,10 @@
   "scripts": {
     "clean-asset": "rm -Rf node_modules/angular2-common-components-assets && rm -Rf ~/AppData/Roaming/npm-cache/_git-remotes/*-angular2-common-components-assets-git-* && rm -Rf ~/AppData/Roaming/npm-cache/angular2-common-components-assets",
     "build-asset": "npm run-script clean-asset && npm install angular2-common-components-assets && cd node_modules/angular2-common-components-assets && npm run-script build && cd ../../",
+    "update-asset": "npm install angular2-common-components-assets && cd node_modules/angular2-common-components-assets && npm run-script build && cd ../../",
     "clean": "rm -rf dist",
     "build": "npm run clean && npm run build-asset && mkdir dist && ng build -o dist",
+    "update": "npm run clean && npm run update-asset && mkdir dist && ng build -o dist",
     "build-dev": "npm run clean && mkdir dist && ng build -w -o dist",
     "start": "ng serve -w -lr --host 0.0.0.0 --port 4200 --live-reload-port 49153",
     "lint": "tslint \"src/**/*.ts\"",
