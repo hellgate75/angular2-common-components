@@ -64,7 +64,7 @@ npm run-script build
 Once you have published your library to npm, you can import your library in any Angular application by running:
 
 ```bash
-$ npm install angular2-common-components
+$ npm install --save https://github.com/hellgate75/angular2-common-components.git
 ```
 
 and then from your Angular2 `AppModule`:
