@@ -65,6 +65,10 @@ Once you have published your library to npm, you can import your library in any 
 
 ```bash
 $ npm install --save https://github.com/hellgate75/angular2-common-components.git
+
+$ npm install --save https://github.com/hellgate75/angular2-common-components-assets.git
+(build assets within project directives)
+
 ```
 
 and then from your Angular2 `AppModule`:
