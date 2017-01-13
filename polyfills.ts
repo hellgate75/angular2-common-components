@@ -1,19 +1,19 @@
 // This file includes polyfills needed by Angular 2 and is loaded before
 // the app. You can add your own extra polyfills to this file.
-import 'core-js/es6/symbol';
-import 'core-js/es6/object';
-import 'core-js/es6/function';
-import 'core-js/es6/parse-int';
-import 'core-js/es6/parse-float';
-import 'core-js/es6/number';
-import 'core-js/es6/math';
-import 'core-js/es6/string';
-import 'core-js/es6/date';
-import 'core-js/es6/array';
-import 'core-js/es6/regexp';
-import 'core-js/es6/map';
-import 'core-js/es6/set';
-import 'core-js/es6/reflect';
+import './node_modules/core-js/es6/symbol.js';
+import './node_modules/core-js/es6/object.js';
+import './node_modules/core-js/es6/function.js';
+import './node_modules/core-js/es6/parse-int.js';
+import './node_modules/core-js/es6/parse-float.js';
+import './node_modules/core-js/es6/number.js';
+import './node_modules/core-js/es6/math.js';
+import './node_modules/core-js/es6/string.js';
+import './node_modules/core-js/es6/date.js';
+import './node_modules/core-js/es6/array.js';
+import './node_modules/core-js/es6/regexp.js';
+import './node_modules/core-js/es6/map.js';
+import './node_modules/core-js/es6/set.js';
+import './node_modules/core-js/es6/reflect.js';
 
-import 'core-js/es7/reflect';
-import 'zone.js/dist/zone';
+import './node_modules/core-js/es7/reflect.js';
+import './node_modules/zone.js/dist/zone.js';
