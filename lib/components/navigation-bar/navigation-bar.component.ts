@@ -1,7 +1,7 @@
 import {Component, AfterContentInit, Inject, Input, ElementRef, ViewEncapsulation} from '@angular/core';
 import { Location } from '@angular/common';
 
-import { RouteDescriptor } from '../../models/base-model';
+import { RouteDescriptor, DescriptorFactory } from '../../models/base-model';
 
 @Component( {
   selector: 'navigation-bar',

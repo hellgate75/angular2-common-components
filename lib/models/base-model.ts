@@ -1,5 +1,6 @@
 import { uuid } from '../utils/uuid';
 import {Subject} from 'rxjs/Rx';
+import {Injectable} from '@angular/core';
 
 export class Cloneable {
   id: string;
@@ -116,4 +117,31 @@ export class RouteDescriptor {
     return new RouteDescriptor(this);
   }
 
+}
+@Injectable()
+export class DescriptorFactory {
+  constructor() {
+
+  }
+  loadRouteDescriptors(): RouteDescriptor[] {
+    let routeDescriptors: RouteDescriptor[] = [];
+    let routeObjects: any[] = [
+      {
+        id: 'main',
+        name: 'Home',
+        url: '/main',
+        description: 'Go to the Login',
+        subRoutes: [
+          {
+            id: 'login',
+            name: 'Login',
+            url: '/login',
+            description: 'Go to the Login',
+            subRoutes: [ ]
+          }    ]
+      }
+    ];
+    routeObjects.forEach( (item: any) => { routeDescriptors.push(new RouteDescriptor(item)); });
+    return routeObjects;
+  }
 }

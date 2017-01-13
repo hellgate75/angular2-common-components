@@ -20,7 +20,23 @@ export interface Environment {
   production: boolean;
   test: boolean;
 }
-export interface AppEnv {
+export class AppEnv {
   services: ServiceServerConfig;
   environment: Environment;
+  constructor(object?: any) {
+    if (!!AppEnv.instance && !!object) {
+      this.services = <ServiceServerConfig> object.services || null;
+      this.environment = <Environment> object.environment   || null;
+      if (!!this.services && !!this.environment) {
+        AppEnv.instance = this.clone();
+      }
+    } else if (!!AppEnv.instance) {
+      this.services = AppEnv.instance.services;
+      this.environment = AppEnv.instance.environment;
+    }
+  }
+  clone(): AppEnv {
+    return new AppEnv(this);
+  }
+  static instance: AppEnv;
 }
