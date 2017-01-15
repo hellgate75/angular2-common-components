@@ -67,7 +67,7 @@ export const defaultTranslateModuleRoot = {
       BrowserModule,
       FormsModule,
       HttpModule,
-      TranslateModule.forRoot(defaultTranslateModuleRoot)
+      RouterModule
   ],
   exports: [
       BrowserModule,
@@ -87,7 +87,7 @@ export const defaultTranslateModuleRoot = {
       ItemListComponent,
       NavigationBarComponent,
       GenericDialogComponent,
-      TranslateModule.forRoot(defaultTranslateModuleRoot)
+      RouterModule
   ],
     providers: [
         CanActivateLoginGuard,

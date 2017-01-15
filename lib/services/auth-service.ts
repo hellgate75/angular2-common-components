@@ -29,7 +29,7 @@ export class AuthService {
   firstLoad: boolean = false;
   sessionKey: string;
 
-  constructor(@Inject(USER_BIND_BACKEND_SERVICE) public backendService: BackEndService) {
+  constructor(private backendService: BackEndService) {
     if (!!this.sessionKey) {
       this.sessionKey = SESSION_KEY;
     }
@@ -114,7 +114,7 @@ export class AuthService {
               loggedin = true;
               let sessionObj: any = {sessionKey: '' + this.sessionKey, user: filtered[0]};
               AuthService.session = new Session(sessionObj);
-              let sessionResponseSubscribtion: any;
+              let sessionResponseSubscribtion: any = {};
               /* tslint:disable */
               let responseSubject: Subject<boolean> = this.insertSession(sessionResponseSubscribtion, '' +
                 AuthService.session.id, AuthService.session);
@@ -189,7 +189,7 @@ export class AuthService {
   */
   allRoles(): Subject<Role[]> {
       let roleChain = new Subject<Role[]>();
-      let rolesSubscription: any;
+      let rolesSubscription: any = {};
       let roleSubscription: any = this.getRoles(rolesSubscription).subscribe(
         (all: Role[]) => {
           let roles: Role[] = [];
@@ -240,7 +240,7 @@ export class AuthService {
    */
   allAuths(): Subject<Auth[]> {
     let authChain = new Subject<Auth[]>();
-    let authsSubscription: any;
+    let authsSubscription: any = {};
     let authSubscription: any = this.getAuths(authsSubscription).subscribe(
       (all: Auth[]) => {
         let auths: Auth[] = [];
@@ -412,7 +412,7 @@ export class AuthService {
   }
 
   logout(): any {
-    let sessionResponseSubscribtion: any;
+    let sessionResponseSubscribtion: any = {};
     if (!!AuthService.session) {
       let responseSubject: Subject<boolean> = this.deleteSession(sessionResponseSubscribtion,
         localStorage.getItem(USER_SESSION_KEY));
@@ -447,7 +447,7 @@ export class AuthService {
     if (!AuthService.session) {
       let sessionValue: string = localStorage.getItem(USER_SESSION_KEY);
       if (!!sessionValue) {
-        let subscriber: any;
+        let subscriber: any = {};
         this.loadSession(subscriber, sessionValue).subscribe(
           (all: Session[]) => {
             if (all.length > 0) {

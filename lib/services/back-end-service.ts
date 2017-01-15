@@ -14,7 +14,6 @@ export class BackEndService {
   /**
    * Represent the Back-End Service
    * @constructor
-    * @param {ServiceServer} serviceConfig - The Service Serer configuration
    * @param {Http} http - the Http service
    *
    */
@@ -25,6 +24,7 @@ export class BackEndService {
   /**
    * requireServiceDML() - method that realize the dml command statement.
    * @param {Subject<boolean>} expectedSubject - subscriber of the response status
+   * @param (string) server - Server string representing the specific configuration
    * @param {Request} request - request class of the element
    *
    */
@@ -104,11 +104,13 @@ export class BackEndService {
   }
 
   /**
-  * requireServiceQuery() - template method that realize the query statement.
-  * @param {Subject<A[]>} expectedSubject - subscriber of the discovered template elements
-  * @param {Request} request - request class of the element
-  * @param {number} timeout (optional) - timeout for the accumulation or nothing (or zero) if not provided
-  */
+   * requireServiceQuery() - template method that realize the query statement.
+   * @param {Subject<A[]>} expectedSubject - subscriber of the discovered template elements
+   * @param (string) server - Server string representing the specific configuration
+   * @param {Request} request - request class of the element
+   * @param {ICloneableConstructor<?>} constructor (optional) - timeout for the accumulation or nothing (or zero) if not provided
+   * @param {number} timeout (optional) - timeout for the accumulation or nothing (or zero) if not provided
+   */
   /* tslint:disable */
   requireServiceQuery<A extends Cloneable>(expectedSubject: Subject<A[]>, server: string, request: Request,
                      constructor: ICloneableConstructor<A>, timeout?: number): Subscriber<Response> {
@@ -191,7 +193,7 @@ export class BackEndService {
       '=' + (!!searchValue ? searchValue : '') : '') + (!!searchText ? '?q=' + searchText : '')
       + qryOptions + qrySortOptions);
     /* tslint:disable */
-    if (timeout) {
+    if (timeout && !!httpCall && !!httpCall.timeout) {
       //noinspection TypeScriptValidateTypes
       httpCall.timeout( timeout );
     }
