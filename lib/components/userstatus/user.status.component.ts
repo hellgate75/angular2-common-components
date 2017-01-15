@@ -1,7 +1,7 @@
 import {Component, ElementRef, Inject, ViewEncapsulation} from '@angular/core';
 import {Router} from '@angular/router';
 
-import { USER_BIND_AUTH_SERVICE, AuthService } from '../../../index';
+import { AuthService } from '../../../index';
 import {Input} from "@angular/core";
 import {EventEmitter} from "@angular/core";
 import { DialogOpenEvent, EventItem } from '../../models/base-model';
@@ -15,7 +15,7 @@ import { DialogOpenEvent, EventItem } from '../../models/base-model';
 export class UserStatusComponent {
   @Input() loginActivator: EventEmitter<DialogOpenEvent>;
   title: string = 'SlamRe';
-  constructor(/*@Inject(USER_BIND_AUTH_SERVICE) private authService: AuthService,*/
+  constructor(/*@Inject(AuthService) private authService: AuthService,*/
               @Inject(Router) private router: Router,
               @Inject(ElementRef) private elementRef: ElementRef) {
   }

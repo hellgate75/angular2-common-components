@@ -14,7 +14,7 @@ export class WelcomeComponent {
   description: string = `This is a simple Router navigation application. 
 This app is adaptative but it is not completely mobile-friendly`;
   constructor(
-    @Inject(USER_BIND_AUTH_SERVICE) private authService: AuthService ) {
+    /*@Inject(AuthService) private authService: AuthService*/ ) {
   }
   username(): string {
     return 'Fabrizio';

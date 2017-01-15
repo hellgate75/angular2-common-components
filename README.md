@@ -80,7 +80,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 // Import your library
-import { SampleModule } from 'angular2-common-components ';
+import { LibModule } from 'angular2-common-components ';
 
 @NgModule({
   declarations: [
@@ -90,13 +90,19 @@ import { SampleModule } from 'angular2-common-components ';
     BrowserModule,
 
     // Specify your library as an import
-    LibraryModule
+    LibraryModule.forRoot()
   ],
+  exports: [
+      // Specify your library as an visible in all you sub modules
+      LibraryModule.forRoot()
+   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 ```
+
+
 
 Once your library is imported, you can use its components, directives and pipes in your Angular2 application:
 
@@ -105,7 +111,7 @@ Once your library is imported, you can use its components, directives and pipes 
 <h1>
   {{title}}
 </h1>
-<sampleComponent></sampleComponent>
+<sampleAppComponent></sampleAppComponent>
 ```
 
 ## Development
