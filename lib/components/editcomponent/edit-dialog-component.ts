@@ -57,18 +57,44 @@ export class EditDialogComponent implements AfterContentInit {
   }
 
   show(): void {
-    jQuery(this.elementRef.nativeElement).dialog('open');
+    if (!this.contentjQueryElement) {
+      this.create();
+    }
+    else {
+      this.adjust();
+    }
+    this.contentjQueryElement.dialog('open');
   }
 
   hide(): void {
-    jQuery(this.elementRef.nativeElement).dialog('close');
+    this.contentjQueryElement.dialog('close');
   }
 
   ngAfterContentInit(): void {
+    if (!!this.activation) {
+      this.activation.subscribe(
+        (next: Cloneable) => {
+          this.reference = next;
+          this.model = next.clone();
+          this.show();
+        }
+      );
+    }
+  }
+
+  adjust(): void {
+    let contentElement: any = jQuery(this.elementRef.nativeElement).find('#dialog-content');
+    contentElement.width(this.eventDescriptor.width);
+    contentElement.height(this.eventDescriptor.height);
+    this.contentjQueryElement.dialog().width(this.eventDescriptor.width);
+    this.contentjQueryElement.dialog().height(this.eventDescriptor.height);
+  }
+
+  create(): void {
     let contentElement: any = this.contentjQueryElement = jQuery(this.elementRef.nativeElement).find('#dialog-content');
     contentElement.width(this.width);
     contentElement.height(this.height);
-    jQuery(this.elementRef.nativeElement).dialog({
+    this.contentjQueryElement = jQuery(contentElement).dialog({
       modal: true,
       autoOpen: false,
       width: this.width,
@@ -105,15 +131,6 @@ export class EditDialogComponent implements AfterContentInit {
       draggable: false,
       resizable: false
     });
-    if (!!this.activation) {
-      this.activation.subscribe(
-        (next: Cloneable) => {
-          this.reference = next;
-          this.model = next.clone();
-          this.show();
-        }
-      );
-    }
   }
 
 }

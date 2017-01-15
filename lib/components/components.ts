@@ -1,3 +1,4 @@
+export * from './dialog/dialog-component';
 export * from './editcomponent/edit-dialog-component';
 export * from './editcomponent/editform/edit-form-component';
 export * from './editcomponent/formelement/form-element-component';

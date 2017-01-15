@@ -1,6 +1,16 @@
-<div class="container-fluent">
-    <div class="well" [ngClass]="{'fadeOut': !authService.isLogged()}" style="border-radius: 15px; border-radius: 1.2em;">
-      Logged in as <b>{{ authService.getUserName() }}</b><br/><br/>
-      <a href (click)="logout()" class="ui primary button" style="font-size: 14px;font-size: 1.0em;margin-top: -10px;">Log out</a>
+<div class="ng-user-status">
+  <div class="container-fluent">
+    <span class="title-block">{{title}}</span>
+    <div class="content-block">
+      <ng-content></ng-content>
     </div>
+      <div class="well" *ngIf="!isLoggedOut()">
+        Logged in as <b>{{ userName() }}</b><br/>
+        <a href (click)="logout()" class="ui primary button" style="font-size: 14px;font-size: 1.0em;margin-top: -10px;">Log out</a>
+      </div>
+    <div class="btn-login" *ngIf="isLoggedOut()" (click)="askForLogin()">
+      <i class="fa fa-user-o"></i>
+      <span>Login</span>
+    </div>
+  </div>
 </div>

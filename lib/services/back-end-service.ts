@@ -1,8 +1,7 @@
 import {Http, Response, Headers, RequestOptionsArgs} from '@angular/http';
 import {Injectable, Inject} from '@angular/core';
-import { SESSION_KEY } from '../utils/utils';
 import {Observable, Subject, Subscriber} from 'rxjs';
-import {OBJECT_SERVICE_SERVER_CONF, USER_BIND_SESSION_KEY} from '../shared/constants';
+import { AppEnv } from '../shared/app-env.interface';
 import {ServiceServer, ServiceServerConfig} from '../shared/app-env.interface';
 import { Request, FILTER_TYPE, REQUEST_TYPE } from '../models/back-end-model';
 import { Cloneable, Factory, CloneableCreator, ICloneableConstructor } from '../models/base-model';
@@ -11,7 +10,7 @@ declare const JSON: any;
 
 @Injectable()
 export class BackEndService {
-
+  serviceServerConfig: ServiceServerConfig;
   /**
    * Represent the Back-End Service
    * @constructor
@@ -19,8 +18,8 @@ export class BackEndService {
    * @param {Http} http - the Http service
    *
    */
-  constructor(@Inject(OBJECT_SERVICE_SERVER_CONF) public serviceServerConfig: ServiceServerConfig,
-              private http: Http) {
+  constructor(private http: Http) {
+    this.serviceServerConfig = new AppEnv().services;
   }
 
   /**

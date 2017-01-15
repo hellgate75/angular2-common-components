@@ -118,6 +118,39 @@ export class RouteDescriptor {
   }
 
 }
+export class EventItem {
+  name: string;
+  description: string;
+  constructor(name: string, description?: string) {
+    this.name = name                      || '';
+    this.description = description        || this.name;
+  }
+}
+export class DialogOpenEvent {
+  buttons: number;
+  buttonNames: EventItem[];
+  width: number;
+  height: number;
+  openEffectDuration: number;
+  openEffectType: string;
+  openEffectDiretion: string;
+  closeEffectDuration: number;
+  closeEffectType: string;
+  closeEffectDiretion: string;
+
+  constructor(object: any) {
+      this.buttons = object.buttons                                || 1;
+      this.buttonNames = object.buttonNames                        || [new EventItem("close", "Close")];
+      this.width = object.width                                    || 100;
+      this.height = object.height                                  || 100;
+      this.openEffectDuration = object.openEffectDuration          || 250;
+      this.openEffectType = object.openEffectType                  || 'slide';
+      this.openEffectDiretion = object.openEffectDiretion          || 'up';
+      this.closeEffectDuration = object.closeEffectDuration        || this.openEffectDuration;
+      this.closeEffectType = object.closeEffectType                || this.openEffectType;
+          this.closeEffectDiretion = object.closeEffectDiretion    || this.openEffectDiretion;
+  }
+}
 @Injectable()
 export class DescriptorFactory {
   constructor() {

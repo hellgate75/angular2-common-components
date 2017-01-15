@@ -1,8 +1,10 @@
 import {Component, ElementRef, Inject, ViewEncapsulation} from '@angular/core';
 import {Router} from '@angular/router';
-import {USER_BIND_AUTH_SERVICE} from '../../shared/constants';
 
-import {AuthService} from '../../services/auth-service';
+import { USER_BIND_AUTH_SERVICE, AuthService } from '../../../index';
+import {Input} from "@angular/core";
+import {EventEmitter} from "@angular/core";
+import { DialogOpenEvent, EventItem } from '../../models/base-model';
 
 @Component({
   selector: 'app-user-status',
@@ -11,16 +13,35 @@ import {AuthService} from '../../services/auth-service';
   encapsulation: ViewEncapsulation.None
 })
 export class UserStatusComponent {
-  elementRef: ElementRef;
-  constructor(@Inject(USER_BIND_AUTH_SERVICE) public authService: AuthService,
+  @Input() loginActivator: EventEmitter<DialogOpenEvent>;
+  title: string = 'SlamRe';
+  constructor(/*@Inject(USER_BIND_AUTH_SERVICE) private authService: AuthService,*/
               @Inject(Router) private router: Router,
-              @Inject(ElementRef) elementRef: ElementRef) {
-    this.elementRef = elementRef;
+              @Inject(ElementRef) private elementRef: ElementRef) {
   }
 
-  logout(): boolean {
-    this.authService.logout();
-    this.router.navigate(['/main'])
-     return false;
+  logout(): void {
+    //this.authService.logout();
+    this.router.navigate(['/main']);
+
+  }
+  userName(): string {
+     //return this.authService.getUserName() || 'Guest';
+    return  'Guest';
+  }
+  isLoggedOut(): boolean {
+    //return !this.authService.isLogged();
+    return true;
+  }
+  askForLogin(): void {
+    if (!!this.loginActivator) {
+      this.loginActivator.emit(new DialogOpenEvent({buttons: 2, buttonNames: [
+        new EventItem('login', 'Login'),
+        new EventItem('cancel', 'Cancel')
+      ],
+        width: 500,
+        height: 400}));
+    }
+    console.log('Required Login');
   }
 }

@@ -64,7 +64,6 @@
     "@types/lodash": "^4.14.44",
     "@types/node": "^6.0.42",
     "codelyzer": "^2.0.0-beta.4",
-    "gulp-tsc": "^1.2.6",
     "jasmine-core": "2.4.1",
     "jasmine-spec-reporter": "2.5.0",
     "jqueryui": "^1.11.1",

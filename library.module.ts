@@ -1,3 +1,4 @@
+
 // Providers
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -9,18 +10,18 @@ import {APP_BASE_HREF, HashLocationStrategy, LocationStrategy} from '@angular/co
 // Components
 import { WelcomeComponent, UnAuthotorizedComponent, LoginComponent, UserStatusComponent, PageNotFoundComponent,
   FilterBoxComponent, SortingBoxComponent, SortingBoxItemComponent, EditDialogComponent, EditFormComponent,
-  EditElementComponent, PagingBoxComponent, ItemListComponent, NavigationBarComponent } from 'lib/components/components';
+  EditElementComponent, PagingBoxComponent, ItemListComponent, NavigationBarComponent } from './lib/components/components';
 
 // Services
-import { AuthService , BackEndService } from 'lib/services/services';
+import { AuthService , BackEndService } from './lib/services/services';
 
 
 // Services
-import { Utils } from 'lib/utils/utils';
+import { Utils } from './lib/utils/utils';
 import {
   USER_BIND_UTILS_OBJECT, USER_BIND_BACKEND_SERVICE,
   USER_BIND_AUTH_SERVICE
-} from 'lib/shared/constants';
+} from './lib/shared/constants';
 
 export const LIB_MODULE_DECLARATIONS = [
   WelcomeComponent,
