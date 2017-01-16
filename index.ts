@@ -10,4 +10,5 @@ export * from './lib/shared/app-env.interface';
 export * from './lib/shared/constants';
 export * from './lib/utils/utils';
 export * from './lib/utils/uuid';
+export * from './lib/providers';
 export * from './library.module';

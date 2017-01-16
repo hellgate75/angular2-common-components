@@ -1,14 +1,12 @@
-import {Component, ElementRef, Inject, ViewEncapsulation} from '@angular/core';
+import {Component, ElementRef, Inject, ViewEncapsulation, EventEmitter, Input} from '@angular/core';
 import {Router} from '@angular/router';
 
 import { AuthService } from '../../../index';
-import {Input} from "@angular/core";
-import {EventEmitter} from "@angular/core";
 import { DialogOpenEvent, EventItem } from '../../models/base-model';
 
 @Component({
   selector: 'app-user-status',
-  providers: [],
+  providers: [ ],
   templateUrl: './user.status.component.html',
   encapsulation: ViewEncapsulation.None
 })

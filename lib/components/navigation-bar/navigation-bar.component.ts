@@ -13,9 +13,8 @@ export class NavigationBarComponent implements AfterContentInit {
 
   @Input() routes: RouteDescriptor[];
 
-  constructor(
-    private location: Location,
-    @Inject(ElementRef) private elementRef: ElementRef ) {
+  constructor(private location: Location,
+              @Inject(ElementRef) private elementRef: ElementRef ) {
   }
 
   getLinkStyle(route: RouteDescriptor): boolean {
